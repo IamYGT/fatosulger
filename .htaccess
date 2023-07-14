@@ -1,0 +1,14 @@
+RewriteEngine on
+ RewriteCond %{SERVER_PORT} 80
+RewriteRule ^.*$ https://www.%{SERVER_NAME}%{REQUEST_URI} [R=301,L]
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteCond %{REQUEST_FILENAME}.php -f
+RewriteRule ^(.*)$ $1.php
+RewriteRule ^([a-z]+)\/?$ $1.php [NC]
+RewriteRule haber-(.*)\.html$ haber-detay.php?url=$1
+RewriteRule kurumsal-(.*)\.html$ kurumsal.php?url=$1
+RewriteRule hizmet-(.*)\.html$ hizmet-detay.php?url=$1
+RewriteRule urun-(.*)\.html$ urun-detay.php?url=$1
+RewriteRule kategori-(.*)\.html$ urunlerimiz.php?url=$1
+
+ 
